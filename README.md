@@ -295,7 +295,7 @@ WebAssemblyは非同期読み込みする必要があるらしく、同期読み
 DOM操作やレンダリングもWebAssemblyでできたら一番いいのになあ。
 
 
-#参考にさせていただいたサイト
+#参考にさせていただいたサイト 
 https://developer.mozilla.org/ja/docs/WebAssembly/Rust_to_wasm
 https://qiita.com/mizchi/items/dc089c28e4d3afa78207
 https://qiita.com/ito-hiroki/items/aaaf66e082f917baacc9

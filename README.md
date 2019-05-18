@@ -226,7 +226,7 @@ module.exports = {
         "sourceMap": false,
         "target": "es5",
         "lib": ["dom","es6","es2015.core"],
-        "outDir": "build/ts",
+        "outDir": "build/js",
         "module": "esNext"
     },
     "include": [
@@ -254,7 +254,7 @@ wasmモジュールが見つからないというエラーです。`webpack.conf
 
 ## 2. WebAssembly module is included in initial chunk. This is not allowed, because WebAssembly download and compilation must happen asynchronous. ...
 
-WebAssemblyは非同期に読み込まれる必要があるのに、初期構造に既に含まれてますよというエラーです（よくわかりません）。`tsconfig.json`のコンパイラオプションのモジュールに`esNext`が設定されていないと起きるエラーのようです。
+WebAssemblyは非同期読み込みする必要があるらしく、同期読み込みした場合に出るエラーです。`tsconfig.json`のコンパイラオプションのモジュールに`esNext`が設定されていない場合も発生します。
 
 
 ```js:tsconfig.json
@@ -272,7 +272,7 @@ WebAssemblyは非同期に読み込まれる必要があるのに、初期構造
 
 ## 3. Uncaught (in promise) TypeError: Failed to execute 'compile' on 'WebAssembly': HTTP status code is not ok
 
-ローカルサーバで`index.html`を開くと、ブラウザのインスペクタに表示されるエラーです。
+ローカルサーバで`index.html`を開くと、ブラウザコンソールに表示されるエラーです。
 これは、今回のプロジェクト構成例のように`index.html`と`main.js`のパスが異なる場合に表示されるエラーのようです。
 
 ```js:webpack.config.js
@@ -295,8 +295,8 @@ WebAssemblyは非同期に読み込まれる必要があるのに、初期構造
 DOM操作やレンダリングもWebAssemblyでできたら一番いいのになあ。
 
 
-# 参考にさせていただいたサイト
-https://developer.mozilla.org/ja/docs/WebAssembly/Rust_to_wasm <br>
-https://qiita.com/mizchi/items/dc089c28e4d3afa78207 <br>
-https://qiita.com/ito-hiroki/items/aaaf66e082f917baacc9 <br>
+#参考にさせていただいたサイト
+https://developer.mozilla.org/ja/docs/WebAssembly/Rust_to_wasm
+https://qiita.com/mizchi/items/dc089c28e4d3afa78207
+https://qiita.com/ito-hiroki/items/aaaf66e082f917baacc9
 https://github.com/rustwasm/rust-webpack-template/issues/43#issuecomment-426597176

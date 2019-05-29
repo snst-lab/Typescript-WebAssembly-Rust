@@ -66,7 +66,7 @@ cargo -V
 ```
 
 # crateの作成
-WebAssemblyのプロジェクトのことをcrateと呼んだりするようです。（厳密な解釈ではないかもですが）
+WebAssemblyのパッケージのことをcrateと呼んだりするようです。
 次のコマンドでsrcフォルダ内にcrateを作成します。今回はcrateをモジュールとして使いたいので、--libオプションをつけました。crate名は適当につけます。今回はwasmとしました。（ちなみにcrate名を「crate」とすると怒られました。）
 
 ```bash
@@ -176,7 +176,8 @@ wasm-pack build src/wasm
 
 pkgフォルダ内にwasm.jsというファイルが作成されているので、これをmain.tsからDynamic importして使用します。
 
-```ts:main.ts
+```js
+s:main.ts
  const wasm = import('../wasm/pkg/wasm.js');
  wasm.then(mod => {
      mod.greet('WebAssembly');
@@ -292,10 +293,8 @@ WebAssemblyは非同期読み込みする必要があるらしく、同期読み
 
 後はTypescript側からlib.rsに重そうな処理をどんどん引っ越ししていきたいと思います。
 
-DOM操作やレンダリングもWebAssemblyでできたら一番いいのになあ。
 
-
-#参考にさせていただいたサイト 
+#参考にさせていただいたサイト
 https://developer.mozilla.org/ja/docs/WebAssembly/Rust_to_wasm
 https://qiita.com/mizchi/items/dc089c28e4d3afa78207
 https://qiita.com/ito-hiroki/items/aaaf66e082f917baacc9
